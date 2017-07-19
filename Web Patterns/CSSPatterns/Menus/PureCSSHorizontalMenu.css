@@ -1,0 +1,72 @@
+﻿/*
+	Lifted straight from here: http://www.devinrolsen.com/pure-css-horizontal-menu/
+*/
+
+#horizontalmenu
+{
+	width:100%;
+	height:30px;
+	background-color:#999;
+}
+
+#horizontalmenu ul
+{
+	margin:0px; 
+	padding:0px;
+	}
+
+#horizontalmenu ul li
+{
+	display:inline;
+	height:30px;
+	float:left;
+	list-style:none;
+	margin-left:15px;
+	position:relative;
+}
+
+#horizontalmenu li a
+{
+	color:#fff; 
+	text-decoration:none;
+	}
+
+#horizontalmenu li a:hover
+{
+	text-decoration:underline;
+	}
+
+#horizontalmenu li ul
+{
+margin:0px;
+	padding:0px;
+	display:none;
+	position:absolute;
+	left:0px;
+	top:20px;
+	background-color:#999;
+}
+
+#horizontalmenu li:hover ul
+{
+	display:block;
+	width:160px;
+}
+
+#horizontalmenu li li
+{
+	list-style:none;
+	display:list-item;
+	width:100%;
+}
+
+#horizontalmenu li li a
+{
+	color:#fff; 
+	text-decoration:none;
+ }
+
+#horizontalmenu li li a:hover
+{
+	text-decoration:underline;
+ }

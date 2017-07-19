@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+	<title>XML Parser</title>
+	<script type="text/javascript" >
+	<!--
+		function loadXMLDoc(dname) {
+			if (window.XMLHttpRequest) {
+				xhttp = new XMLHttpRequest();
+			}
+			else {
+				xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xhttp.open("GET", dname, false);
+			xhttp.send();
+			return xhttp.responseXML;
+		};
+
+		function loadXMLString(txt) {
+			if (window.DOMParser) {
+				parser = new DOMParser();
+				xmlDoc = parser.parseFromString(txt, "text/xml");
+			}
+			else // Internet Explorer
+			{
+				xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+				xmlDoc.async = false;
+				xmlDoc.loadXML(txt);
+			}
+			return xmlDoc;
+		}
+	//-->
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		xmlDoc = loadXMLDoc("books.xml");
+
+		document.write("Nodename: " + xmlDoc.nodeName);
+		document.write(" (nodetype: " + xmlDoc.nodeType + ")");
+		document.write(" (value: " + xmlDoc.childNodes[0].nodeValue + ")<br />");
+
+		x = xmlDoc.documentElement;
+		ParseNodes(x);
+
+
+		function ParseNodes(node) {
+			document.write("Nodename: " + node.nodeName);
+			document.write(" (nodetype: " + node.nodeType + ")");
+			document.write(" (value: " + node.nodeValue + ")<br />");
+			if (node.hasChildNodes) {
+				//var nodes = node.childNodes.length;
+				for (var idx = 0; idx < node.childNodes.length; idx++) {//Note that the var item is _essential_ as without it idx is a global variable not a local...
+					if (node.nodeType == 1) {
+						ParseNodes(node.childNodes[idx]);
+					}
+				}
+			}
+		}
+</script>
+</body>
+</html>

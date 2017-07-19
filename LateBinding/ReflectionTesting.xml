@@ -1,0 +1,56 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ReflectionTesting
+</name>
+</assembly>
+<members>
+<member name="T:ReflectionTesting.LateBindingTests">
+ <summary>
+ 
+ </summary>
+ <remarks>
+ Note that the target assembly must be in the same folder as the unit test - for LateBinding tests both project are built into the LateBnding project folder
+ </remarks>
+</member>
+<member name="M:ReflectionTesting.LateBindingWrapper.GetInstance">
+ <summary>
+ Call this first to get an instance of the class we want to use
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ReflectionTesting.LateBindingWrapper.SetData(System.Object@,System.String)">
+ <summary>
+ Call this to execute METHOD.
+ </summary>
+ <param name="instance"></param>
+ <remarks></remarks>
+</member>
+<member name="M:ReflectionTesting.LateBindingWrapper.GetData(System.Object@)">
+ <summary>
+ Call this to execute METHOD.
+ </summary>
+ <param name="instance"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:ReflectionTesting.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:ReflectionTesting.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:ReflectionTesting.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+</members>
+</doc>

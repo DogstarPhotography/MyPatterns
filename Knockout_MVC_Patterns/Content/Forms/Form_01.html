@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container" id="formcontent">
+        <div class="row">
+            <!-- Form -->
+            <div class="form-horizontal" id="Form_1">
+
+                <!-- Title -->
+                <h1>Title</h1>
+
+                <!-- Section A -->
+                <div class="panel panel-info" id="Section_A">
+                    <div class="panel-heading">Section A</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="Question_1" class="col-sm-2 control-label" id="Question_1_LBL">Question 1</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Question_1" data-bind="value: Question1" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Question_2" class="col-sm-2 control-label" id="Question_2_LBL">Question 2</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Question_2" data-bind="value: Question2" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Question_3" class="col-sm-2 control-label" id="Question_3_LBL">Question 3</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Question_3" data-bind="value: Question3" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Display -->
+                <div class="panel panel-info" id="Section_Display">
+                    <div class="panel-heading">Section Display Options</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="Question_Display" class="col-sm-2 control-label" id="Section_Display_LBL">Display Additional Section?</label>
+                            <div class="col-sm-10">
+                                <div class="radio-inline">
+                                    <label>
+                                        <input type="radio" name="optDisplay" id="optDisplay1" value="true" data-bind="checkedValue: true, checked: DisplaySectionB">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="radio-inline">
+                                    <label>
+                                        <input type="radio" name="optDisplay" id="optDisplay2" value="false" data-bind="checkedValue: false, checked: DisplaySectionB">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section B -->
+                <!-- Demonstrates Visibility by section -->
+                <div class="panel panel-info" id="Section_B" data-bind="visible: DisplaySectionB">
+                    <div class="panel-heading">Section B</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="Question_4" class="col-sm-2 control-label" id="Question_4_LBL">Question 4</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Question_4" data-bind="value: Question4" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Question_5" class="col-sm-2 control-label" id="Question_5_LBL">Question 5</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Question_5" data-bind="value: Question5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Question_6" class="col-sm-2 control-label" id="Question_6_LBL">Question 6</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Question_6" data-bind="value: Question6" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section C -->
+                <!-- Demonstrates Checkbox and Dropdown -->
+                <div class="panel panel-info" id="Section_C">
+                    <div class="panel-heading">Section C</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox" id="Question_7_LBL">
+                                    <label>
+                                        <input type="checkbox" id="Question_7" data-bind="checked: Question7, value: Question7" />
+                                        Question 7
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Question_8" class="col-sm-2 control-label" id="Question_8_LBL">Question 8</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="Question_8" data-bind="options: Question8Options, optionsCaption: 'Select an item...', value: Question8"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Question_9" class="col-sm-2 control-label" id="Question_9_LBL">Question 9</label>
+                            <div class="col-sm-10">
+                                <textarea rows="12" class="form-control" id="Question_9" data-bind="textInput: Question9"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section D - Demonstrates using click binding with parameters -->
+                <div class="panel panel-info" id="Section_D">
+                    <div class="panel-heading">Section D</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="Question_10" class="col-sm-2 control-label" id="Question_10_LBL">Question 10</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Question_1" data-bind="value: Question10" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button data-bind="click: CopyData.bind($data, ['Question10'], ['Question11'])">Copy (Version A)</button>
+                            <button data-bind="click: function() {CopyData(['Question10'], ['Question11'])}">Copy (Version B)</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="Question_11" class="col-sm-2 control-label" id="Question_11_LBL">Question 11</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Question_2" data-bind="value: Question11" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculations -->
+                <div class="panel panel-info" id="Calculations">
+                    <div class="panel-heading">Calculations</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="Item_1" class="col-sm-2 control-label" id="Item_1_LBL">Item 1</label>
+                            <input type="text" class="form-control input-sm" id="Item_1" data-bind="value: Item1" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Item_2" class="col-sm-2 control-label" id="Item_2_LBL">Item 2</label>
+                            <input type="text" class="form-control input-sm" id="Item_2" data-bind="value: Item2" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Item_3" class="col-sm-2 control-label" id="Item_3_LBL">Item 3</label>
+                            <input type="text" class="form-control input-sm" id="Item_3" data-bind="value: Item3" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Item_4" class="col-sm-2 control-label" id="Item_4_LBL">Item 4</label>
+                            <input type="text" class="form-control input-sm" id="Item_4" data-bind="value: Item4" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Item_5" class="col-sm-2 control-label" id="Item_5_LBL">Item 5</label>
+                            <input type="text" class="form-control input-sm" id="Item_5" data-bind="value: Item5" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Item_Total" class="col-sm-2 control-label" id="Item_Total_LBL">Total</label>
+                            <input type="text" class="form-control" id="Item_Total" data-bind="value: ItemsTotal" readonly />
+                        </div>
+                        <div class="form-group">
+                            <button data-bind="click: Reset">Reset</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="panel panel-info" id="Section_Submit">
+                    <div class="panel-heading">Finish</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="Button_Submit" class="col-sm-2 control-label" id="Question_Submit_LBL">Finished</label>
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit" id="Button_Submit" data-bind="click: Save">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

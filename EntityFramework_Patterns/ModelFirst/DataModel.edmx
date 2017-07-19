@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="Roots" EntityType="DataModel.Store.Roots" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Branches" EntityType="DataModel.Store.Branches" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Leaves" EntityType="DataModel.Store.Leaves" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Insects" EntityType="DataModel.Store.Insects" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="RootBranch" Association="DataModel.Store.RootBranch">
+      <End Role="Root" EntitySet="Roots" />
+      <End Role="Branch" EntitySet="Branches" />
+    </AssociationSet>
+    <AssociationSet Name="BranchLeaf" Association="DataModel.Store.BranchLeaf">
+      <End Role="Branch" EntitySet="Branches" />
+      <End Role="Leaf" EntitySet="Leaves" />
+    </AssociationSet>
+    <AssociationSet Name="BranchInsect" Association="DataModel.Store.BranchInsect">
+      <End Role="Branch" EntitySet="Branches" />
+      <End Role="Insect" EntitySet="Insects" />
+    </AssociationSet>
+    <AssociationSet Name="LeafInsect" Association="DataModel.Store.LeafInsect">
+      <End Role="Leaf" EntitySet="Leaves" />
+      <End Role="Insect" EntitySet="Insects" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Roots">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Branches">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RootIndex" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Leaves">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BranchIndex" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Insects">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BranchIndex" Type="int" Nullable="true" />
+    <Property Name="LeafIndex" Type="int" Nullable="true" />
+  </EntityType>
+  <Association Name="RootBranch">
+    <End Role="Root" Type="DataModel.Store.Roots" Multiplicity="1" />
+    <End Role="Branch" Type="DataModel.Store.Branches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Root">
+        <PropertyRef Name="Index" />
+      </Principal>
+      <Dependent Role="Branch">
+        <PropertyRef Name="RootIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BranchLeaf">
+    <End Role="Branch" Type="DataModel.Store.Branches" Multiplicity="1" />
+    <End Role="Leaf" Type="DataModel.Store.Leaves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Index" />
+      </Principal>
+      <Dependent Role="Leaf">
+        <PropertyRef Name="BranchIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BranchInsect">
+    <End Role="Branch" Type="DataModel.Store.Branches" Multiplicity="0..1" />
+    <End Role="Insect" Type="DataModel.Store.Insects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Index" />
+      </Principal>
+      <Dependent Role="Insect">
+        <PropertyRef Name="BranchIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LeafInsect">
+    <End Role="Leaf" Type="DataModel.Store.Leaves" Multiplicity="0..1" />
+    <End Role="Insect" Type="DataModel.Store.Insects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Leaf">
+        <PropertyRef Name="Index" />
+      </Principal>
+      <Dependent Role="Insect">
+        <PropertyRef Name="LeafIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="DataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Roots" EntityType="DataModel.Root" />
+          <EntitySet Name="Branches" EntityType="DataModel.Branch" />
+          <EntitySet Name="Leaves" EntityType="DataModel.Leaf" />
+          <EntitySet Name="Insects" EntityType="DataModel.Insect" />
+          <AssociationSet Name="RootBranch" Association="DataModel.RootBranch">
+            <End Role="Root" EntitySet="Roots" />
+            <End Role="Branch" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="BranchLeaf" Association="DataModel.BranchLeaf">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Leaf" EntitySet="Leaves" />
+          </AssociationSet>
+          <AssociationSet Name="BranchInsect" Association="DataModel.BranchInsect">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Insect" EntitySet="Insects" />
+          </AssociationSet>
+          <AssociationSet Name="LeafInsect" Association="DataModel.LeafInsect">
+            <End Role="Leaf" EntitySet="Leaves" />
+            <End Role="Insect" EntitySet="Insects" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Root">
+          <Documentation>
+            <Summary>A simple data item</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Index" />
+          </Key>
+          <Property Type="Int32" Name="Index" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <NavigationProperty Name="Branches" Relationship="DataModel.RootBranch" FromRole="Root" ToRole="Branch" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Documentation>
+            <Summary>Sub data of main data item</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Index" />
+          </Key>
+          <Property Type="Int32" Name="Index" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Root" Relationship="DataModel.RootBranch" FromRole="Branch" ToRole="Root" />
+          <Property Type="Int32" Name="RootIndex" Nullable="false" />
+          <NavigationProperty Name="Leaves" Relationship="DataModel.BranchLeaf" FromRole="Branch" ToRole="Leaf" />
+          <NavigationProperty Name="Insects" Relationship="DataModel.BranchInsect" FromRole="Branch" ToRole="Insect" />
+        </EntityType>
+        <EntityType Name="Leaf">
+          <Key>
+            <PropertyRef Name="Index" />
+          </Key>
+          <Property Type="Int32" Name="Index" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Branch" Relationship="DataModel.BranchLeaf" FromRole="Leaf" ToRole="Branch" />
+          <Property Type="Int32" Name="BranchIndex" Nullable="false" />
+          <NavigationProperty Name="Insects" Relationship="DataModel.LeafInsect" FromRole="Leaf" ToRole="Insect" />
+        </EntityType>
+        <EntityType Name="Insect">
+          <Key>
+            <PropertyRef Name="Index" />
+          </Key>
+          <Property Type="Int32" Name="Index" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Branch" Relationship="DataModel.BranchInsect" FromRole="Insect" ToRole="Branch" />
+          <Property Type="Int32" Name="BranchIndex" Nullable="true" />
+          <NavigationProperty Name="Leaf" Relationship="DataModel.LeafInsect" FromRole="Insect" ToRole="Leaf" />
+          <Property Type="Int32" Name="LeafIndex" Nullable="true" />
+        </EntityType>
+        <Association Name="RootBranch">
+          <End Type="DataModel.Root" Role="Root" Multiplicity="1" />
+          <End Type="DataModel.Branch" Role="Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Root">
+              <PropertyRef Name="Index" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="RootIndex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BranchLeaf">
+          <End Type="DataModel.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="DataModel.Leaf" Role="Leaf" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="Index" />
+            </Principal>
+            <Dependent Role="Leaf">
+              <PropertyRef Name="BranchIndex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BranchInsect">
+          <End Type="DataModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="DataModel.Insect" Role="Insect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="Index" />
+            </Principal>
+            <Dependent Role="Insect">
+              <PropertyRef Name="BranchIndex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LeafInsect">
+          <End Type="DataModel.Leaf" Role="Leaf" Multiplicity="0..1" />
+          <End Type="DataModel.Insect" Role="Insect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leaf">
+              <PropertyRef Name="Index" />
+            </Principal>
+            <Dependent Role="Insect">
+              <PropertyRef Name="LeafIndex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataModelContainer">
+    <EntitySetMapping Name="Roots">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Root)">
+        <MappingFragment StoreEntitySet="Roots">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Branch)">
+        <MappingFragment StoreEntitySet="Branches">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RootIndex" ColumnName="RootIndex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leaves">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Leaf)">
+        <MappingFragment StoreEntitySet="Leaves">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BranchIndex" ColumnName="BranchIndex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Insects">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Insect)">
+        <MappingFragment StoreEntitySet="Insects">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BranchIndex" ColumnName="BranchIndex" />
+          <ScalarProperty Name="LeafIndex" ColumnName="LeafIndex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="DataModel" DisplayType="true" >
+        <EntityTypeShape EntityType="DataModel.Root" Width="1.5" PointX="0.5" PointY="0.5" Height="1.4033821614583333" />
+        <EntityTypeShape EntityType="DataModel.Branch" Width="1.5" PointX="2.75" PointY="0.875" Height="1.4033821614583331" />
+        <EntityTypeShape EntityType="DataModel.Leaf" Width="1.5" PointX="5" PointY="1.375" Height="1.4033821614583331" />
+        <EntityTypeShape EntityType="DataModel.Insect" Width="1.5" PointX="8" PointY="0.625" Height="1.4033821614583331" />
+        <AssociationConnector Association="DataModel.RootBranch">
+          <ConnectorPoint PointX="2" PointY="1.485341796875" />
+          <ConnectorPoint PointX="2.75" PointY="1.485341796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.BranchLeaf">
+          <ConnectorPoint PointX="4.25" PointY="2.1151432291666667" />
+          <ConnectorPoint PointX="5" PointY="2.1151432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.BranchInsect">
+          <ConnectorPoint PointX="4.25" PointY="1.09375" />
+          <ConnectorPoint PointX="8" PointY="1.09375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.LeafInsect">
+          <ConnectorPoint PointX="6.5" PointY="2.0862939453125" />
+          <ConnectorPoint PointX="8" PointY="2.0862939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <!-- View will be here -->
+    <div>
+        First name: <span data-bind="text: firstName"></span><br />
+        Last name: <span data-bind="text: lastName"></span><br />
+        Full name: <span data-bind="text: fullName"></span><br />
+    </div>
+
+    <script type="text/javascript" src="../Scripts/knockout-3.3.0.js"></script>
+    <script type="text/javascript">
+
+        // Model
+        var person = {
+            firstName: "Joe",
+            lastName: "Public"
+        };
+
+        // ViewModel
+        var PersonViewModel = function () {
+            // 'Constructor' - take a reference copy to 'this'
+            var self = this;
+            self.firstName = ko.observable(person.firstName);
+            self.lastName = ko.observable(person.lastName);
+            self.fullName = ko.computed(function () {
+                return self.firstName() + " Q " + self.lastName();
+            })
+        };
+
+        // Apply
+        ko.applyBindings(PersonViewModel)
+
+    </script>
+
+</body>
+</html>
+

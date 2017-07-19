@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+
+    <!-- View will be here -->
+    <form>
+        Show about
+        <input type="checkbox" data-bind="checked: showAbout" ? />
+        <div data-bind="if: showAbout">
+            John's favorite site is <a href="http://www.packtpub.com">PacktPub</a>
+        </div>
+        <div data-bind="ifnot: showAbout">
+            John's favorite site is not O'Reilly.
+        </div>
+</form>
+
+    <div>
+        Alternate markup
+        <!-- ko if: showAbout -->
+        John's favorite site is <a href="http://www.packtpub.com">PacktPub</a>
+        <!-- /ko -->
+        <!-- ko ifnot: showAbout -->
+        John's favorite site is not O'Reilly.
+        <!-- /ko -->
+    </div>
+
+    <script type="text/javascript" src="../Scripts/knockout-3.3.0.js"></script>
+    <script type="text/javascript">
+
+        // Model
+        var person = {
+        };
+
+        // ViewModel
+        var PersonViewModel = function () {
+            // 'Constructor' - take a reference copy to 'this'
+            var self = this;
+            self.showAbout = ko.observable(false);
+        };
+
+        // Apply
+        ko.applyBindings(PersonViewModel)
+
+    </script>
+
+</body>
+</html>
+

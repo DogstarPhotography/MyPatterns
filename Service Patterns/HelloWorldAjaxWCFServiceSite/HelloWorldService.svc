@@ -1,0 +1,2 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="HelloWorldAjaxWCFServiceWebApp.HelloWorldService"
+	CodeBehind="HelloWorldService.svc.vb"  %>

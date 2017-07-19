@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+
+    <!-- View will be here -->
+    <table>
+        <thead>
+            <tr><th>First Name</th><th>Age</th></tr>
+        </thead>
+        <tbody data-bind="foreach: children">
+            <tr>
+                <td data-bind="text: firstName"></td>
+                <td data-bind="text: age"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Alternate syntax -->
+    <table>
+        <thead>
+            <tr><th>First Name</th><th>Age</th></tr>
+        </thead>
+        <tbody>
+            <!-- ko foreach: children -->
+            <tr>
+                <td data-bind="text: firstName"></td>
+                <td data-bind="text: age"></td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+
+    <script type="text/javascript" src="../Scripts/knockout-3.3.0.js"></script>
+    <script type="text/javascript">
+
+        // Model
+        var person = {
+            children: [
+                { firstName: "Jonnie", age: 3 },
+                { firstName: "Jane", age: 5 },
+                { firstName: "Richard", age: 7 },
+                { firstName: "Mary", age: 9 }
+            ]
+        };
+
+        // ViewModel
+        var PersonViewModel = function() {
+            // 'Constructor' - take a reference copy to 'this'
+            var self = this;
+            self.children = person.children; // Non-observable array
+        };
+
+        // Apply
+        ko.applyBindings(PersonViewModel)
+
+    </script>
+
+</body>
+</html>

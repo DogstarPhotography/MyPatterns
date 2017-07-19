@@ -1,0 +1,17 @@
+frmChartReport = 44, 44, 619, 492, C, 22, 22, 597, 470, C
+modUsefulLib = 110, 110, 685, 558, C
+modFlexGridLib = 0, 0, 508, 448, C
+modRegistry = 220, 220, 795, 668, C
+modStringLib = 110, 110, 685, 558, C
+modMain = 88, 88, 663, 536, C
+frmSplash = 44, 44, 552, 492, C, 220, 220, 795, 668, C
+frmAbout = 66, 66, 574, 514, C, 22, 22, 597, 470, C
+modChartLib = 110, 110, 682, 558, C
+Application = 44, 44, 619, 492, C
+DataArray = 66, 66, 641, 514, C
+frmGridReport = 66, 66, 641, 514, C, 44, 44, 619, 492, C
+modFontLib = 110, 110, 685, 558, C
+frmDisplaySettings = 110, 110, 706, 558, C, 88, 88, 684, 536, C
+frmFlood = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+modMouseLib = 0, 0, 0, 0, C
+modFileLib = 0, 0, 0, 0, C

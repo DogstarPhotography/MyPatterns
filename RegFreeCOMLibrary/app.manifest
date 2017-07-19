@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity name="RegFreeCOMLibrary" version="1.0.0.0" processorArchitecture="msil"></assemblyIdentity>
+  <clrClass clsid="{3ed8cbf2-a118-49ea-a8cf-46b4e2e8dfc8}" progid="RegFreeCOMLibrary.SampleAPI" threadingModel="Both" name="RegFreeCOMLibrary.SampleAPI"></clrClass>
+  <file name="RegFreeCOMLibrary.dll" hashalg="SHA1"></file>
+</assembly>

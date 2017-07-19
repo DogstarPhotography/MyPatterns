@@ -1,0 +1,112 @@
+﻿<#@ template language="VB" debug="true" hostSpecific="true" #>
+<#@ output extension=".generated.vb" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ assembly name="G:\Projects\MyPatterns\Crypto\bin\Debug\Crypto.dll" #>
+<#@ import namespace="Crypto" #>
+<#@ import namespace="Crypto.Symmetric" #>
+<#@ import namespace="Microsoft.VisualBasic" #>
+Imports Crypto
+Imports Crypto.Symmetric
+
+<#
+	Dim bout() As Byte
+	For x as integer = 0 To 255
+#>
+	'<#= Bitconverter.ToString(BitConverter.GetBytes(x)) #> / <#= Bitconverter.ToChar(BitConverter.GetBytes(x), 0).ToString #>
+<#
+	next
+
+#>
+
+Public Class ObfuscatedKeyword
+
+    Public Shared Function Keyword() As String
+        Return AESHMACEncryption.Decrypt(Encrypted, Internal)
+    End Function
+
+    Private Shared Function Encrypted() As String
+        Dim data As String = ""
+        For index = 0 To UBound(ExtractEncrypted) - 1
+            Dim item As Integer = Block(ExtractEncrypted(index))
+            data = data & Chr(item)
+        Next
+        Return data
+    End Function
+
+    Private Shared Function Internal() As String
+        Dim data As String = ""
+        For index = 0 To UBound(ExtractInternal) - 1
+            Dim item As Integer = Block(ExtractInternal(index))
+            data = data & Chr(item)
+        Next
+        Return data
+    End Function
+
+<#
+	'Build a big block of data
+    Dim Blocks As Integer = 16
+    Dim BlockSize As Integer = 256
+    Dim MaxLen As Integer = Blocks * BlockSize
+	Dim ctrBlock As Integer
+	Dim ctrItem As Integer
+	Dim Source(0 To MaxLen - 1) As integer
+	Dim rnd As New Random
+	For ctrItem = 0 To MaxLen - 1
+		Source(ctrItem) = rnd.Next(1, 255)
+	Next
+	'Chop the data up into multiple arrays and output them
+	For ctrBlock = 1 To Blocks
+		Dim output As String = ""
+		For ctrItem = 0 To BlockSize - 1
+			output = output & Source(((ctrBlock - 1) * BlockSize) + ctrItem) & ", "
+		Next
+		output = output.Substring(0, output.Length - 2)
+#>
+    Private Shared Blocks<#= ctrBlock #> As Integer() = {<#= output #>}
+
+<#
+	Next
+#>
+    Private Shared Function Block() As Integer()
+        Dim data(0 To <#= MaxLen #> - 1) As Integer
+<#
+	For ctrBlock = 1 To Blocks
+#>
+        For index = <#= (BlockSize * (ctrBlock - 1)) #> To <#= (BlockSize * ctrBlock) - 1 #>
+            data(index) = Blocks<#= ctrBlock #>(index)
+        Next
+<#
+	Next
+#>
+        Return data
+    End Function
+
+<#
+	'Hash the internal password
+	Dim password As String = "Th1sIsN0t5ecure!"
+	Dim hshPassword As String = Crypto.Hash.SHA256(password)
+	Dim ascHashedPassword(0 To hshPassword.Length - 1) As Integer
+	For ctrItem = 0 To hshPassword.Length - 1
+		ascHashedPassword(ctrItem) = Asc(hshPassword.Substring(ctrItem, 1))
+	Next
+#>
+
+<#
+	Dim keyword As String = "MIPDANIO"
+	Dim hshKeyword As String = Crypto.Symmetric.AESHMACEncryption.Encrypt(keyword, hshPassword)
+#>
+
+    Private Shared ExtractEncrypted As Integer() = {0, 1, 2}
+    Private Shared ExtractInternal As Integer() = {0, 1, 2}
+
+
+
+
+End Class

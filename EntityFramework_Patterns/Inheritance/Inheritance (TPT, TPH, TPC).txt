@@ -1,0 +1,21 @@
+﻿
+TPT - Table Per Type
+TPH - Table Per Heirarchy
+TPC - Table Per Concrete type
+
+See
+http://huagati.blogspot.co.uk/2010/10/mixing-inheritance-strategies-in-entity.html
+http://blogs.msdn.com/b/adonet/archive/2010/10/25/inheritance-mapping-a-walkthrough-guide-for-beginners.aspx
+http://blogs.msdn.com/b/alexj/archive/2009/04/15/tip-12-choosing-an-inheritance-strategy.aspx
+http://blogs.microsoft.co.il/blogs/gilf/archive/2010/01/24/table-per-hierarchy-inheritance-in-entity-framework.aspx
+
+How to: Define a Model with Table-per-Hierarchy Inheritance
+http://msdn.microsoft.com/en-us/library/bb738443.aspx
+Walkthrough: Mapping Inheritance - Table-per-Hierarchy (Entity Data Model Tools)
+http://msdn.microsoft.com/en-us/library/cc716683.aspx
+Inheritance with EF Code First: Part 3 – Table per Concrete Type (TPC) 
+http://weblogs.asp.net/manavi/archive/2011/01/03/inheritance-mapping-strategies-with-entity-framework-code-first-ctp5-part-3-table-per-concrete-type-tpc-and-choosing-strategy-guidelines.aspx
+
+Entity Designer Database Generation Power Pack
+http://blogs.msdn.com/b/adonet/archive/2010/02/08/entity-designer-database-generation-power-pack.aspx
+http://visualstudiogallery.msdn.microsoft.com/df3541c3-d833-4b65-b942-989e7ec74c87/

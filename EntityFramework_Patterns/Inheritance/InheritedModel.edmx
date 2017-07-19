@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InheritedModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="InheritedModelStoreContainer">
+    <EntitySet Name="TPTDataItems" EntityType="InheritedModel.Store.TPTDataItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TPTDataItems_TPTPrimaryData" EntityType="InheritedModel.Store.TPTDataItems_TPTPrimaryData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TPTDataItems_TPTSecondaryData" EntityType="InheritedModel.Store.TPTDataItems_TPTSecondaryData" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PrimaryDataSecondaryData" Association="InheritedModel.Store.PrimaryDataSecondaryData">
+      <End Role="PrimaryData" EntitySet="TPTDataItems_TPTPrimaryData" />
+      <End Role="SecondaryData" EntitySet="TPTDataItems_TPTSecondaryData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TPTPrimaryData_inherits_TPTDataItem" Association="InheritedModel.Store.FK_TPTPrimaryData_inherits_TPTDataItem">
+      <End Role="TPTDataItem" EntitySet="TPTDataItems" />
+      <End Role="TPTPrimaryData" EntitySet="TPTDataItems_TPTPrimaryData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TPTSecondaryData_inherits_TPTDataItem" Association="InheritedModel.Store.FK_TPTSecondaryData_inherits_TPTDataItem">
+      <End Role="TPTDataItem" EntitySet="TPTDataItems" />
+      <End Role="TPTSecondaryData" EntitySet="TPTDataItems_TPTSecondaryData" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TPTDataItems">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TPTDataItems_TPTPrimaryData">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Identifier" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Index" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TPTDataItems_TPTSecondaryData">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Identifier" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrimaryDataIndex" Type="int" Nullable="false" />
+    <Property Name="Index" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PrimaryDataSecondaryData">
+    <End Role="PrimaryData" Type="InheritedModel.Store.TPTDataItems_TPTPrimaryData" Multiplicity="1" />
+    <End Role="SecondaryData" Type="InheritedModel.Store.TPTDataItems_TPTSecondaryData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrimaryData">
+        <PropertyRef Name="Index" />
+      </Principal>
+      <Dependent Role="SecondaryData">
+        <PropertyRef Name="PrimaryDataIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TPTPrimaryData_inherits_TPTDataItem">
+    <End Role="TPTDataItem" Type="InheritedModel.Store.TPTDataItems" Multiplicity="1" />
+    <End Role="TPTPrimaryData" Type="InheritedModel.Store.TPTDataItems_TPTPrimaryData" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TPTDataItem">
+        <PropertyRef Name="Index" />
+      </Principal>
+      <Dependent Role="TPTPrimaryData">
+        <PropertyRef Name="Index" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TPTSecondaryData_inherits_TPTDataItem">
+    <End Role="TPTDataItem" Type="InheritedModel.Store.TPTDataItems" Multiplicity="1" />
+    <End Role="TPTSecondaryData" Type="InheritedModel.Store.TPTDataItems_TPTSecondaryData" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TPTDataItem">
+        <PropertyRef Name="Index" />
+      </Principal>
+      <Dependent Role="TPTSecondaryData">
+        <PropertyRef Name="Index" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="InheritedModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="InheritedModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TPTDataItems" EntityType="InheritedModel.TPTDataItem" />
+          <AssociationSet Name="PrimaryDataSecondaryData" Association="InheritedModel.PrimaryDataSecondaryData">
+            <End Role="PrimaryData" EntitySet="TPTDataItems" />
+            <End Role="SecondaryData" EntitySet="TPTDataItems" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TPTDataItem">
+          <Key>
+            <PropertyRef Name="Index" />
+          </Key>
+          <Property Type="Int32" Name="Index" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Value" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TPTPrimaryData" BaseType="InheritedModel.TPTDataItem" >
+          <Property Type="String" Name="Identifier" Nullable="false" />
+          <NavigationProperty Name="SecondaryDatas" Relationship="InheritedModel.PrimaryDataSecondaryData" FromRole="PrimaryData" ToRole="SecondaryData" />
+        </EntityType>
+        <EntityType Name="TPTSecondaryData" BaseType="InheritedModel.TPTDataItem" >
+          <Property Type="String" Name="Identifier" Nullable="false" />
+          <NavigationProperty Name="PrimaryData" Relationship="InheritedModel.PrimaryDataSecondaryData" FromRole="SecondaryData" ToRole="PrimaryData" />
+          <Property Type="Int32" Name="PrimaryDataIndex" Nullable="false" />
+        </EntityType>
+        <Association Name="PrimaryDataSecondaryData">
+          <End Type="InheritedModel.TPTPrimaryData" Role="PrimaryData" Multiplicity="1" />
+          <End Type="InheritedModel.TPTSecondaryData" Role="SecondaryData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrimaryData">
+              <PropertyRef Name="Index" />
+            </Principal>
+            <Dependent Role="SecondaryData">
+              <PropertyRef Name="PrimaryDataIndex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InheritedModelStoreContainer" CdmEntityContainer="InheritedModelContainer">
+    <EntitySetMapping Name="TPTDataItems">
+      <EntityTypeMapping TypeName="IsTypeOf(InheritedModel.TPTDataItem)">
+        <MappingFragment StoreEntitySet="TPTDataItems">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(InheritedModel.TPTPrimaryData)">
+        <MappingFragment StoreEntitySet="TPTDataItems_TPTPrimaryData">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(InheritedModel.TPTSecondaryData)">
+        <MappingFragment StoreEntitySet="TPTDataItems_TPTSecondaryData">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="PrimaryDataIndex" ColumnName="PrimaryDataIndex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="InheritedModel" DisplayType="true" >
+        <EntityTypeShape EntityType="InheritedModel.TPTDataItem" Width="1.5" PointX="0.5" PointY="0.5" Height="1.59568359375" />
+        <EntityTypeShape EntityType="InheritedModel.TPTPrimaryData" Width="1.5" PointX="0.5" PointY="2.875" Height="1.4033821614583339" />
+        <InheritanceConnector EntityType="InheritedModel.TPTPrimaryData" >
+          <ConnectorPoint PointX="1.25" PointY="2.09568359375" />
+          <ConnectorPoint PointX="1.25" PointY="2.875" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="InheritedModel.TPTSecondaryData" Width="1.5" PointX="2.75" PointY="2.875" Height="1.5956835937499996" />
+        <InheritanceConnector EntityType="InheritedModel.TPTSecondaryData" >
+          <ConnectorPoint PointX="1.25" PointY="2.09568359375" />
+          <ConnectorPoint PointX="1.25" PointY="2.5" />
+          <ConnectorPoint PointX="3.5" PointY="2.5" />
+          <ConnectorPoint PointX="3.5" PointY="2.875" />
+        </InheritanceConnector>
+        <AssociationConnector Association="InheritedModel.PrimaryDataSecondaryData">
+          <ConnectorPoint PointX="2" PointY="3.5766910807291667" />
+          <ConnectorPoint PointX="2.75" PointY="3.5766910807291667" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

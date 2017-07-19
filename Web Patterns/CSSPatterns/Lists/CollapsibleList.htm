@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title></title>
+	<style type="text/css">
+		ul {
+			list-style-type: none
+			}
+		.more_content {
+			margin: 10px 0px 0px 50px;
+			padding: 5px 5px 5px 5px;
+			width: 200px;
+			height: 100px;
+			border: 1px solid black;
+			overflow: auto;
+			display: none
+			}
+	</style>
+	<script type="text/javascript">
+	<!--
+
+		function showMore(link_id, elemId) {
+			linkObj = document.getElementById(link_id);
+			//display the more content for this elemId
+			document.getElementById(elemId).style.display = 'block';
+			//change the links attributes to hide the more content
+			linkObj.href = 'javascript:hideMore("' + link_id + '","' + elemId + '")';
+			linkObj.innerHTML = "Show less";
+		}
+
+		function hideMore(link_id, elemId) {
+			linkObj = document.getElementById(link_id);
+			//hide the more content for this elemId
+			document.getElementById(elemId).style.display = 'none';
+			//change the links attributes to show the more content
+			linkObj.href = 'javascript:showMore("' + link_id + '","' + elemId + '")';
+			linkObj.innerHTML = "Show more";
+		}
+
+	-->
+	</script>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>
+				<div>
+					<a id="m1_link" href="javascript:showMore('m1_link','m1_cont')">Show more</a>
+					<div id="m1_cont" class="more_content">
+						More 1 content</div>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a id="m2_link" href="javascript:showMore('m2_link','m2_cont')">Show more</a>
+					<div id="m2_cont" class="more_content">
+						More 2 content</div>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a id="m3_link" href="javascript:showMore('m3_link','m3_cont')">Show more</a>
+					<div id="m3_cont" class="more_content">
+						More 3 content</div>
+				</div>
+			</li>
+			<li>
+				<div>
+					<a id="m4_link" href="javascript:showMore('m4_link','m4_cont')">Show more</a>
+					<div id="m4_cont" class="more_content">
+						More 4 content</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

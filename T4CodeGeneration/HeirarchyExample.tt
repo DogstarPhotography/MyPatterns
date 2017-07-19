@@ -1,0 +1,84 @@
+﻿<#@ template debug="false" hostspecific="true" language="VB" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".generated.vb" #>
+Imports System.Xml
+<#
+	' Map node name --> child name --> child node type  
+	Dim nodeTypes As New Dictionary(Of String, Dictionary(Of String, XmlNodeType))()
+	' Open the prototype document.  
+	Dim doc As New XmlDocument()
+	doc.Load("G:\Projects\MyPatterns\T4CodeGeneration\HeirarchyExample.xml")
+	' Inspect all the nodes in the document.  
+	' The example might contain many nodes of the same type,   
+	' so make a dictionary of node types and their children.  
+	For Each node As XmlNode In doc.SelectNodes("//*")
+		Dim subs As Dictionary(Of String, XmlNodeType) = Nothing
+		If Not nodeTypes.TryGetValue(node.Name, subs) Then
+			subs = New Dictionary(Of String, XmlNodeType)()
+			nodeTypes.Add(node.Name, subs)
+		End If
+		For Each child As XmlNode In node.ChildNodes
+			subs(child.Name) = child.NodeType
+		Next
+		For Each child As XmlNode In node.Attributes
+			subs(child.Name) = child.NodeType
+		Next
+	Next
+#>
+<#
+	'Generate a class for each node type
+	For each classname As string In nodeTypes.Keys
+#>
+	Partial Class <#= UpperInitial(classname) #>
+		Private thisNode As XmlNode
+		Public Sub New(node As XmlNode)
+			thisNode = node
+		End Sub
+<#
+		For each childname As String In nodeTypes(classname).Keys
+			Select case nodeTypes(classname)(childname)
+			Case XmlNodeType.element
+#>
+		Public ReadOnly Iterator Property <#= UpperInitial(childname) #>() As IEnumerable(Of <#= UpperInitial(childname) #>)
+			Get
+				For Each node As XmlNode In thisNode.SelectNodes("<#= UpperInitial(childname) #>")
+					Yield New <#= UpperInitial(childname) #>(node)
+				Next
+			End Get
+		End Property
+<#
+			Case XmlNodeType.Attribute
+#>
+		Public ReadOnly Property <#=childname #>() As String
+			Get
+				Return thisNode.Attributes("<#=childname #>").Value
+			End Get
+		End Property
+<#
+			Case XmlNodeType.Text
+#>
+		Public ReadOnly Property Text() As String
+			Get
+				Return thisNode.InnerText
+			End Get
+		End Property
+<#
+			End Select
+		Next
+#>
+	End Class
+<#
+	Next
+#>
+
+<#+
+	'Capitalize the first character of the name
+	Function UpperInitial(name As String) As String
+		return name(0).ToString().ToUpperInvariant() & name.Substring(1)  
+	End function
+#>

@@ -1,0 +1,9 @@
+﻿
+Open a Visual Studio command prompt
+Navigate to the directory where the xml file resides
+run xsd FILENAME.xml
+run xsd FILENAME.xsd /c /L:VB
+add the xsd file to the solution
+add the vb file to the solution
+
+Make sure to show all files in solution explorer

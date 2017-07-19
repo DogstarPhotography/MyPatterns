@@ -1,0 +1,15 @@
+modUsefulLib = 132, 132, 732, 580, C
+modRegistry = 154, 154, 754, 602, C
+modStringLib = 176, 176, 776, 624, C
+modMain = 198, 198, 798, 646, C
+modChartLib = 220, 220, 820, 668, C
+Application = 0, 0, 600, 448, C
+modFileLib = 22, 22, 622, 470, C
+frmMaster = 0, 0, 533, 448, C, 220, 220, 753, 668, C
+modCommonMenus = 110, 110, 664, 558, C
+frmGridReport = 132, 132, 686, 580, C, 88, 88, 642, 536, C
+frmChartReport = 110, 110, 664, 558, C, 22, 22, 576, 470, C
+modCSVLib = 0, 0, 0, 0, C
+frmAbout = 0, 0, 0, 0, C, 154, 154, 719, 602, C
+frmSplash = 66, 66, 631, 514, C, 44, 44, 609, 492, C
+modDatabaseLibrary = 132, 132, 697, 580, C

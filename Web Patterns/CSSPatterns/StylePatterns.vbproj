@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{411725B2-1E2A-4B05-9077-FD44644F8161}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CSSPatterns</RootNamespace>
+    <AssemblyName>CSSPatterns</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>CSSPatterns.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>CSSPatterns.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXSSLibrary">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60501\lib\40\SanitizerProviders\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60501\lib\40\SanitizerProviders\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60501\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\LipsumBanners\black_120x240.gif" />
+    <Content Include="Images\LipsumBanners\black_120x60.gif" />
+    <Content Include="Images\LipsumBanners\black_120x600.gif" />
+    <Content Include="Images\LipsumBanners\black_120x90.gif" />
+    <Content Include="Images\LipsumBanners\black_125x125.gif" />
+    <Content Include="Images\LipsumBanners\black_160x600.gif" />
+    <Content Include="Images\LipsumBanners\black_180x150.gif" />
+    <Content Include="Images\LipsumBanners\black_234x60.gif" />
+    <Content Include="Images\LipsumBanners\black_240x400.gif" />
+    <Content Include="Images\LipsumBanners\black_250x250.gif" />
+    <Content Include="Images\LipsumBanners\black_300x250.gif" />
+    <Content Include="Images\LipsumBanners\black_336x280.gif" />
+    <Content Include="Images\LipsumBanners\black_468x60.gif" />
+    <Content Include="Images\LipsumBanners\black_728x90.gif" />
+    <Content Include="Images\LipsumBanners\black_88x31.gif" />
+    <Content Include="Images\LipsumBanners\grey_120x240.gif" />
+    <Content Include="Images\LipsumBanners\grey_120x60.gif" />
+    <Content Include="Images\LipsumBanners\grey_120x600.gif" />
+    <Content Include="Images\LipsumBanners\grey_120x90.gif" />
+    <Content Include="Images\LipsumBanners\grey_125x125.gif" />
+    <Content Include="Images\LipsumBanners\grey_160x600.gif" />
+    <Content Include="Images\LipsumBanners\grey_180x150.gif" />
+    <Content Include="Images\LipsumBanners\grey_234x60.gif" />
+    <Content Include="Images\LipsumBanners\grey_240x400.gif" />
+    <Content Include="Images\LipsumBanners\grey_250x250.gif" />
+    <Content Include="Images\LipsumBanners\grey_300x250.gif" />
+    <Content Include="Images\LipsumBanners\grey_336x280.gif" />
+    <Content Include="Images\LipsumBanners\grey_468x60.gif" />
+    <Content Include="Images\LipsumBanners\grey_728x90.gif" />
+    <Content Include="Images\LipsumBanners\grey_88x31.gif" />
+    <Content Include="Images\LipsumBanners\white_120x240.gif" />
+    <Content Include="Images\LipsumBanners\white_120x60.gif" />
+    <Content Include="Images\LipsumBanners\white_120x600.gif" />
+    <Content Include="Images\LipsumBanners\white_120x90.gif" />
+    <Content Include="Images\LipsumBanners\white_125x125.gif" />
+    <Content Include="Images\LipsumBanners\white_160x600.gif" />
+    <Content Include="Images\LipsumBanners\white_180x150.gif" />
+    <Content Include="Images\LipsumBanners\white_234x60.gif" />
+    <Content Include="Images\LipsumBanners\white_240x400.gif" />
+    <Content Include="Images\LipsumBanners\white_250x250.gif" />
+    <Content Include="Images\LipsumBanners\white_300x250.gif" />
+    <Content Include="Images\LipsumBanners\white_336x280.gif" />
+    <Content Include="Images\LipsumBanners\white_468x60.gif" />
+    <Content Include="Images\LipsumBanners\white_728x90.gif" />
+    <Content Include="Images\LipsumBanners\white_88x31.gif" />
+    <Content Include="Lists\BoxLists.htm" />
+    <Content Include="Lists\CollapsibleList.htm" />
+    <Content Include="Lists\TamingLists.htm" />
+    <Content Include="LoremIpsum.txt" />
+    <Content Include="Menus\PureCSSHorizontalMenu.css" />
+    <Content Include="Menus\PureCSSHorizontalMenu.htm" />
+    <Content Include="Menus\PureCSSVerticalMenu.css" />
+    <Content Include="Menus\PureCSSVerticalMenu.htm" />
+    <Content Include="PageLayouts\ScrollingContent.aspx" />
+    <Content Include="PageLayouts\ScrollingContent.js" />
+    <Content Include="PageLayouts\ThreeColumnLayout.css" />
+    <Content Include="PageLayouts\ThreeColumnLayout.htm" />
+    <Content Include="Temp.htm" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PageLayouts\ScrollingContent.aspx.designer.vb">
+      <DependentUpon>ScrollingContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageLayouts\ScrollingContent.aspx.vb">
+      <DependentUpon>ScrollingContent.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57024</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

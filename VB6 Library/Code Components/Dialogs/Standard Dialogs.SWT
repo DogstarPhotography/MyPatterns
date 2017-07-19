@@ -1,0 +1,50 @@
+[Setup Wizard Template]
+TemplateDate=13/08/97 13:21:05
+
+[Select Project and Options]
+txtProjFile=E:\Visual Basic Programming\Code Components\Dialogs\Standard Dialogs Server.vbp
+chkProjRebuild=0
+optBldSetup=False
+chkIncludeDEP=1
+optInternet=False
+optDEPOnly=True
+
+[Distribution Method]
+optFloppyTarg=False
+optSingleDirTarg=False
+optMultDirTarg=False
+
+[Internet Package]
+optRemoteSite=True
+optLocalSite=False
+txtLocalSite=
+
+[Data Access]
+chkUseJet=1
+chkUseODBC=0
+Isam0=
+
+[ActiveX Server Components]
+File1=
+
+[Confirm Dependencies]
+File1="C:\WINNT\System32\COMDLG32.OCX",True,32764
+File2=
+
+[Shared ActiveX Application]
+optDeployApplication=False
+optDeployShared=True
+optRemoteServer1=True
+optRemoteServer0=False
+
+[File Summary]
+File1="C:\WINNT\System32\MSVBVM50.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File2="C:\Program Files\DevStudio\VB\SETUPKIT\KITFIL32\SYS32\StdOle2.tlb",True,"$(WinSysPathSysFile)",$(TLBRegister),False
+File3="C:\Program Files\DevStudio\VB\SETUPKIT\KITFIL32\SYS32\OleAut32.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File4="C:\Program Files\DevStudio\VB\SETUPKIT\KITFIL32\SYS32\OlePro32.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File5="C:\Program Files\DevStudio\VB\SETUPKIT\KITFIL32\SYS32\AsycFilt.dll",True,"$(WinSysPathSysFile)",,False
+File6="C:\Program Files\DevStudio\VB\SETUPKIT\KITFIL32\SYS32\Ctl3d32.dll",True,"$(WinSysPathSysFile)",,False
+File7="C:\Program Files\DevStudio\VB\SETUPKIT\KITFIL32\SYS32\ComCat.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File8="C:\WINNT\System32\COMDLG32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File9="E:\Visual Basic Programming\Code Components\Dialogs\Standard Dialogs Server.dll",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File10="E:\Visual Basic Programming\Code Components\Dialogs\Standard Dialogs Server.DEP",True,"$(WinSysPath)",,True

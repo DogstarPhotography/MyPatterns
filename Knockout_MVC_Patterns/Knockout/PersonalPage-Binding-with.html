@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    The with binding creates a new binding context, so that descendant elements are bound in the context of a specified object: http://knockoutjs.com/documentation/with-binding.html
+
+    <!-- View will be here -->
+    <div data-bind="with: wife">
+        Wife's first name: <span data-bind="text: firstName"></span><br />
+        Wife's last name: <span data-bind="text: lastName"></span>
+    </div>
+
+    Alternate markup
+    <div>
+        <!-- ko with: wife -->
+        Wife's family name: <span data-bind="text: lastName"></span><br />
+        Wife's first name: <span data-bind="text: firstName"></span>
+        <!-- /ko -->
+    </div>
+
+    <script type="text/javascript" src="../Scripts/knockout-3.3.0.js"></script>
+    <script type="text/javascript">
+
+        // Model
+        var person = {
+            wife: {
+                firstName: "Jessica",
+                lastName: "Doe"
+            }
+        };
+
+        // ViewModel
+        var PersonViewModel = function () {
+            // 'Constructor' - take a reference copy to 'this'
+            var self = this;
+            self.wife = ko.observable(person.wife);
+        };
+
+        // Apply
+        ko.applyBindings(PersonViewModel)
+
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "StylePatterns", "CSSPatterns\StylePatterns.vbproj", "{411725B2-1E2A-4B05-9077-FD44644F8161}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CodePatterns", "WebPatterns\CodePatterns.vbproj", "{ADA5AD0A-C339-4183-B39A-484C39324642}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs03
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CSSPatterns\\StylePatterns.vbproj
+		SccProjectName1 = CSSPatterns
+		SccLocalPath1 = CSSPatterns
+		SccProjectUniqueName2 = WebPatterns\\CodePatterns.vbproj
+		SccProjectName2 = WebPatterns
+		SccLocalPath2 = WebPatterns
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{411725B2-1E2A-4B05-9077-FD44644F8161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{411725B2-1E2A-4B05-9077-FD44644F8161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{411725B2-1E2A-4B05-9077-FD44644F8161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{411725B2-1E2A-4B05-9077-FD44644F8161}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA5AD0A-C339-4183-B39A-484C39324642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA5AD0A-C339-4183-B39A-484C39324642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA5AD0A-C339-4183-B39A-484C39324642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA5AD0A-C339-4183-B39A-484C39324642}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

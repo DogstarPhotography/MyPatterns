@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.vb" Inherits="HelloWorldWCFRESTService.HelloWorldWCFRESTService.Global_asax" Language="VB" %>

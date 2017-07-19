@@ -1,0 +1,3 @@
+VBGROUP 5.0
+StartupProject=CSV Viewer.vbp
+Project=..\CSV Database\CSV Database.vbp

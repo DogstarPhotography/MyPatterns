@@ -1,0 +1,9 @@
+frmSplash = 176, 176, 712, 624, C, 154, 154, 690, 602, C
+frmBoilerPlate = 44, 44, 597, 492, C, 22, 22, 575, 470, C
+frmBoilerDialog = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+BoilerPlateClass = 44, 44, 597, 492, C
+modMain = 66, 66, 649, 514, C
+modUsefulLib = 0, 0, 0, 0, C
+modBoilerLib = 132, 132, 670, 580, C
+modMenuLib = 176, 176, 730, 624, C
+modStringLib = 0, 0, 0, 0, C

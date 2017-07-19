@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+
+    <!-- View will be here -->
+    <div>
+        John's age is <span data-bind="text: age"></span>.
+        <button data-bind="click: growOld">Grow Older</button>
+    </div>
+
+    <script type="text/javascript" src="../Scripts/knockout-3.3.0.js"></script>
+    <script type="text/javascript">
+
+        // Model
+        var person = {
+            age: 30
+        };
+
+        // ViewModel
+        var PersonViewModel = function() {
+            // 'Constructor' - take a reference copy to 'this'
+            var self = this;
+            self.age = ko.observable(person.age);
+            self.growOld = function() {
+                var previousAge = self.age();
+                self.age(previousAge + 1);
+            }
+        };
+
+        // Apply
+        ko.applyBindings(PersonViewModel)
+
+    </script>
+
+</body>
+</html>

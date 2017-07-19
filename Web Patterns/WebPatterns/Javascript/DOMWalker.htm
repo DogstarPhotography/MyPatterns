@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<script type="text/javascript">
+	<!--
+
+	function BuildNavigationV1() {
+		ClearNavigation();
+		AppendNavigation('<ul>');
+		AppendNavigation('<li><a href="#Text1">1</li>');
+		AppendNavigation('<li><a href="#Text2">2</li>');
+		AppendNavigation('<li><a href="#Text3">3</li>');
+		AppendNavigation('<li><a href="#Text4">4</li>');
+		AppendNavigation('</ul>');
+	};
+
+	function BuildNavigation() {
+		ClearNavigation();
+		AppendNavigation('<ul>');
+		var outerdiv = document.getElementById('OuterDiv');
+		if (outerdiv.childNodes.length > 0) {
+			for (var idx = 0; idx < outerdiv.childNodes.length; idx++) {
+				var nodeid = outerdiv.childNodes[idx].getAttribute('id');
+				var nodetype = outerdiv.childNodes[idx].nodeType;
+				if(nodeType == 1 && nodeid == '')
+			}
+		};
+
+		AppendNavigation('<li><a href="#Text1">1</li>');
+		AppendNavigation('<li><a href="#Text2">2</li>');
+		AppendNavigation('<li><a href="#Text3">3</li>');
+		AppendNavigation('<li><a href="#Text4">4</li>');
+		AppendNavigation('</ul>');
+	};
+
+	function ClearNavigation() {
+		document.getElementById('Navigation').innerHTML = ""
+	};
+
+	function AppendNavigation(text) {
+		document.getElementById('Navigation').innerHTML += text
+	};
+
+	//-->
+	</script>
+</head>
+<body onload="BuildNavigation();">
+	<div id="Navigation">
+	Navigation
+	</div>
+	<div id="OuterDiv">
+		<div id="InnerDivA">
+			<p>
+				1. <input id="Text1" type="text" />
+			</p>
+			<p>
+				2. <input id="Text2" type="text" />
+			</p>
+		</div>
+		<div id="InnerDivB">
+			<p>
+				3. <input id="Text3" type="text" />
+			</p>
+			<p>
+				4. <input id="Text4" type="text" />
+			</p>
+		</div>
+		<p>
+			<input id="Button1" type="button" value="button" />
+		</p>
+	</div>
+</body>
+</html>

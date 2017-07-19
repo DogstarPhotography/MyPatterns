@@ -1,0 +1,10 @@
+frmMDIBoilerplate = 132, 132, 697, 580, C, 110, 110, 675, 558, C
+frmMDIChildBoilerPlate = 198, 198, 763, 646, C, 0, 0, 565, 448, C
+frmSplash = 44, 44, 609, 492, C, 22, 22, 587, 470, C
+frmBoilerPlate = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+modMain = 88, 88, 653, 536, C
+modBoilerLib = 0, 0, 0, 0, C
+modMenuLib = 176, 176, 741, 624, C
+modUsefulLib = 0, 0, 0, 0, C
+modStringLib = 0, 0, 0, 0, C
+modFileLib = 110, 110, 675, 558, C

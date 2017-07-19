@@ -1,0 +1,50 @@
+﻿
+How To Create a Registration Free .NET COM Component
+
+Note that registration free COM components are very fiddly and all the various configurations and settings must be exactly right for it to work so it should only be used when appropriate.
+
+1.	Create a Visual Studio Project and set both register for COM and COM-visible on
+		Ensure that the AssmeblyInfo file contains Guid and Version entries
+2.	Add a COM class with methods, etc
+3.	Add an app.manifest file
+4.	Set configuration to release and build the project
+5.	Open a Visual Studio command prompt in the release folder (or the folder where the DLL is located)
+6.	run mt.exe -managedassemblyname:[LIBRARY_NAME].dll -nodependency -out:[LIBRARY_NAME].dll.manifest replacing [LIBRARY_NAME] with the name of the library
+7.	Cut and paste the contents of [LIBRARY_NAME].dll.manifest into the app.manifest file
+		There will be a single assemblyIdentity element, and a clrClass element for each class in the library
+8.	Edit the app.manifest to remove the runtimeVersion=... entry from any clrClass elements
+9.	Rebuild and deploy the files to the target machine
+
+ - Note that the manifest will be included inside the DLL, open it in Visual Studio and check the contests of the RT_MANIFEST node to verify
+ - You will need to include the [LIBRARY_NAME].tlb file in order for VB6 to reference the DLL
+ - Excluding the [LIBRARY_NAME].dll.manifest file in the deployment will not cause issues
+
+How To Consume an Unregistered .NET COM Component
+
+1.	Create and build/make an application that references the .NET COM component (via the .tlb for VB6)
+2.	Copy the .config and .manifest file from the Consumer Configuration folder
+3.	Rename the files to match the name of the application. e.g. Consumer.exe.config => YourApplication.exe.config
+3.	Edit the manifest file with the correct component and application names 
+4.	Ensure that the contents of the assemblyIdentity element are an exact match to the contents of the app.manifest's assemblyIdentity elements
+5.	Deploy and test
+
+ - It may be possible to change the supportedRuntime version="v4.0" entry irrrn the .config file to supportedRuntime version="v2.0.50727" note that this refers to the CLR runtime version
+ - You must have a version of the .NET framework on the target machine with the given CLR runtime
+ - In order to debug the VB6 code you need to add VB6.exe.config and VB6.exe.manifest files to the c:\Program Files\Visaul Studio\VB98 folder. See the VB6 Configuration folder for sample files
+ 
+References:
+
+http://msdn.microsoft.com/en-us/magazine/cc188708.aspx - overview
+http://msdn.microsoft.com/en-us/library/ms973913.aspx - out of date but gives a good walkthrough of the process - although it is actually quite inaccurate, see http://jwbs-blog.blogspot.co.uk/2009/06/registration-free-com-components_16.html
+http://stackoverflow.com/questions/465882/generate-manifest-files-for-registration-free-com - how to use mt.exe to generate a manifest
+http://stackoverflow.com/questions/4084585/how-to-embed-a-manifest-file-at-compile-time-in-visual-studio-2010 - adding a manifest file
+http://stackoverflow.com/questions/11469592/cannot-get-to-work-vb-net-dll-referenced-by-vb6-client-in-reg-free-scenario - use of config file
+http://msdn.microsoft.com/en-us/library/w4atty68.aspx - supportedRuntime element
+
+More References:
+
+http://blogs.msdn.com/b/junfeng/archive/2006/04/20/579748.aspx
+http://blogs.msdn.com/b/junfeng/archive/2006/05/17/595140.aspx
+http://blogs.msdn.com/b/junfeng/archive/2007/04/14/genman32-a-tool-to-generate-sxs-manifest-for-managed-assembly-for-registration-free-com-net-interop.aspx
+
+

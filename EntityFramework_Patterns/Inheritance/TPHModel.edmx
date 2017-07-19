@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TPHModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+    <EntityContainer Name="TPHModelStoreContainer">
+
+        <EntitySet Name="TPHDataItems" EntityType="TPHModel.Store.TPHDataItems" store:Type="Tables" Schema="dbo" />
+        <AssociationSet Name="TPHPrimaryDataTPHSecondaryData" Association="TPHModel.Store.TPHPrimaryDataTPHSecondaryData">
+            <End Role="TPHPrimaryData" EntitySet="TPHDataItems" />
+            <End Role="TPHSecondaryData" EntitySet="TPHDataItems" />
+        </AssociationSet>
+
+    </EntityContainer>
+
+    <EntityType Name="TPHDataItems">
+        <Key>
+            <PropertyRef Name="Index" />
+        </Key>
+		<Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+		<Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+		<Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+		<Property Name="PrimaryIdentifier" Type="nvarchar(max)" Nullable="true" />
+		<Property Name="SecondaryIdentifier" Type="nvarchar(max)" Nullable="true" />
+		<Property Name="TPHPrimaryDataIndex" Type="int" Nullable="false" DefaultValue="-1" />
+        <Property Name="__Disc__" Type="nvarchar" MaxLength="Max" Nullable="false" />
+    </EntityType>
+	<Association Name="TPHPrimaryDataTPHSecondaryData">
+		<End Role="TPHPrimaryData" Type="TPHModel.Store.TPHDataItems" Multiplicity="1">
+		</End>				
+		<End Role="TPHSecondaryData" Type="TPHModel.Store.TPHDataItems" Multiplicity="*">
+		</End>				
+		<ReferentialConstraint>
+			<Principal Role="TPHPrimaryData">
+				<PropertyRef Name="Index" />
+			</Principal>
+			<Dependent Role="TPHSecondaryData">
+				<PropertyRef Name="TPHPrimaryDataIndex" />
+			
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="TPHModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="TPHModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TPHDataItems" EntityType="TPHModel.TPHDataItem" />
+          <AssociationSet Name="TPHPrimaryDataTPHSecondaryData" Association="TPHModel.TPHPrimaryDataTPHSecondaryData">
+            <End Role="TPHPrimaryData" EntitySet="TPHDataItems" />
+            <End Role="TPHSecondaryData" EntitySet="TPHDataItems" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TPHDataItem" Abstract="false">
+          <Key>
+            <PropertyRef Name="Index" />
+          </Key>
+          <Property Type="Int32" Name="Index" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Value" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TPHPrimaryData" BaseType="TPHModel.TPHDataItem">
+          <Property Type="String" Name="PrimaryIdentifier" Nullable="true" />
+          <NavigationProperty Name="TPHSecondaryDatas" Relationship="TPHModel.TPHPrimaryDataTPHSecondaryData" FromRole="TPHPrimaryData" ToRole="TPHSecondaryData" />
+        </EntityType>
+        <EntityType Name="TPHSecondaryData" BaseType="TPHModel.TPHDataItem">
+          <Property Type="String" Name="SecondaryIdentifier" Nullable="true" />
+          <NavigationProperty Name="TPHPrimaryData" Relationship="TPHModel.TPHPrimaryDataTPHSecondaryData" FromRole="TPHSecondaryData" ToRole="TPHPrimaryData" />
+          <Property Type="Int32" Name="TPHPrimaryDataIndex" Nullable="false" annotation:StoreGeneratedPattern="None" DefaultValue="-1" />
+        </EntityType>
+        <Association Name="TPHPrimaryDataTPHSecondaryData">
+          <End Type="TPHModel.TPHPrimaryData" Role="TPHPrimaryData" Multiplicity="1" />
+          <End Type="TPHModel.TPHSecondaryData" Role="TPHSecondaryData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TPHPrimaryData">
+              <PropertyRef Name="Index" />
+            </Principal>
+            <Dependent Role="TPHSecondaryData">
+              <PropertyRef Name="TPHPrimaryDataIndex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+	<EntityContainerMapping StorageEntityContainer="TPHModelStoreContainer" CdmEntityContainer="TPHModelContainer">
+		<EntitySetMapping Name="TPHDataItems">
+			<EntityTypeMapping TypeName="TPHModel.TPHDataItem">
+				<MappingFragment StoreEntitySet="TPHDataItems">
+					<ScalarProperty Name="Index" ColumnName="Index" />
+					<ScalarProperty Name="Name" ColumnName="Name" />
+					<ScalarProperty Name="Value" ColumnName="Value" />
+                    <Condition ColumnName="__Disc__" Value="TPHDataItem" />
+				</MappingFragment>
+			</EntityTypeMapping>
+			<EntityTypeMapping TypeName="TPHModel.TPHPrimaryData">
+				<MappingFragment StoreEntitySet="TPHDataItems">
+					<ScalarProperty Name="Index" ColumnName="Index" />
+					<ScalarProperty Name="Name" ColumnName="Name" />
+					<ScalarProperty Name="Value" ColumnName="Value" />
+					<ScalarProperty Name="PrimaryIdentifier" ColumnName="PrimaryIdentifier" />
+                    <Condition ColumnName="__Disc__" Value="TPHPrimaryData" />
+				</MappingFragment>
+			</EntityTypeMapping>
+			<EntityTypeMapping TypeName="TPHModel.TPHSecondaryData">
+				<MappingFragment StoreEntitySet="TPHDataItems">
+					<ScalarProperty Name="Index" ColumnName="Index" />
+					<ScalarProperty Name="Name" ColumnName="Name" />
+					<ScalarProperty Name="Value" ColumnName="Value" />
+					<ScalarProperty Name="SecondaryIdentifier" ColumnName="SecondaryIdentifier" />
+					<ScalarProperty Name="TPHPrimaryDataIndex" ColumnName="TPHPrimaryDataIndex" />
+                    <Condition ColumnName="__Disc__" Value="TPHSecondaryData" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+	</EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="DatabaseGenerationWorkflow" Value="$(VSEFTools)\DBGen\Generate T-SQL Via T4 (TPH).xaml" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToSQL10.tt" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="TPHModel" >
+        <EntityTypeShape EntityType="TPHModel.TPHDataItem" Width="1.5" PointX="0.5" PointY="0.5" Height="1.59568359375" />
+        <EntityTypeShape EntityType="TPHModel.TPHPrimaryData" Width="1.5" PointX="0.5" PointY="2.875" Height="1.4033821614583317" />
+        <InheritanceConnector EntityType="TPHModel.TPHPrimaryData" >
+          <ConnectorPoint PointX="1.25" PointY="2.0956835937499996" />
+          <ConnectorPoint PointX="1.25" PointY="2.875" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="TPHModel.TPHSecondaryData" Width="1.5" PointX="2.75" PointY="2.875" Height="1.2110807291666665" />
+        <InheritanceConnector EntityType="TPHModel.TPHSecondaryData" >
+          <ConnectorPoint PointX="1.25" PointY="2.0956835937499996" />
+          <ConnectorPoint PointX="1.25" PointY="2.33568359375" />
+          <ConnectorPoint PointX="0.25999999999999995" PointY="2.33568359375" />
+          <ConnectorPoint PointX="0.25999999999999995" PointY="6.7260485635498588" />
+          <ConnectorPoint PointX="1.4995833333333335" PointY="6.7260485635498588" />
+          <ConnectorPoint PointX="3.9895833333333335" PointY="5.2149540337839531" />
+          <ConnectorPoint PointX="2.75" PointY="5.2149540337839531" />
+          <ConnectorPoint PointX="2.75" PointY="4.47068359375" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="TPHModel.TPHSecondaryData">
+          <ConnectorPoint PointX="1.25" PointY="2.09568359375" />
+          <ConnectorPoint PointX="1.25" PointY="2.5" />
+          <ConnectorPoint PointX="3.5" PointY="2.5" />
+          <ConnectorPoint PointX="3.5" PointY="2.875" />
+        </InheritanceConnector>
+        <AssociationConnector Association="TPHModel.TPHPrimaryDataTPHSecondaryData">
+          <ConnectorPoint PointX="2" PointY="3.5766910807291667" />
+          <ConnectorPoint PointX="2.75" PointY="3.5766910807291667" />
+        </AssociationConnector>
+        <InheritanceConnector EntityType="TPHModel.TPHPrimaryData">
+          <ConnectorPoint PointX="1.25" PointY="2.09568359375" />
+          <ConnectorPoint PointX="1.25" PointY="2.875" />
+        </InheritanceConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

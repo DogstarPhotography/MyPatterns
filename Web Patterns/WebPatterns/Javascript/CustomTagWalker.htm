@@ -1,0 +1,45 @@
+﻿<html xmlns:custom="http://www.test.com">
+<head>
+	<title>Test</title>
+	<script type="text/javascript">
+		// We want to find all the question tags withing a page tag
+		// getElementsByTagName works fine when using standard HTML tags within each other
+		function BuildTree() {
+			var total = 0;
+			// These two do not work in IE but do work in FF
+			//var pages = document.getElementsByTagName('custom:page');
+			//var questions = pages[0].getElementsByTagName('custom:question');
+
+			// These only work in FireFox (and require a namespace)
+			//var pages = document.getElementsByTagNameNS('http://www.test.com', 'page'); // FF only
+			//var questions = pages[0].getElementsByTagNameNS('http://www.test.com', 'question'); // FF only
+
+			// Adding a namespace ' xmlns:custom="http://www.test.com"' to the document and removing the 'custom:' from the search works correctly
+			var pages = document.getElementsByTagName('page');
+			var questions = pages[0].getElementsByTagName('question');
+
+			for (var i = 0; i < questions.length; ++i) {
+				var question = questions[i];
+				var val = question.getAttribute('value')
+				total += val;
+			}
+			alert("Total: " + total);
+		};
+	</script>
+</head>
+<body>
+	<custom:pages>
+		<custom:page>
+			<custom:question value="1">aaa</custom:question>
+			<custom:question value="2">bbb</custom:question>
+			<custom:question value="3">ccc</custom:question>
+		</custom:page>
+		<custom:page>
+			<custom:question value="1">aaa</custom:question>
+			<custom:question value="2">bbb</custom:question>
+			<custom:question value="3">ccc</custom:question>
+		</custom:page>
+	</custom:pages>
+	<input id="btnTest" type="button" value="Test" onclick="BuildTree();" />
+</body>
+</html>

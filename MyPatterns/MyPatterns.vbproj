@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4052B0C4-BA58-463A-9F8D-FAAA00D8BBAB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>MyPatterns.My.MyApplication</StartupObject>
+    <RootNamespace>MyPatterns</RootNamespace>
+    <AssemblyName>MyPatterns</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <OptionStrict>On</OptionStrict>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>MyPatterns.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>MyPatterns.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.ComponentModel" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.IO" />
+    <Import Include="System.Threading" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.vb" />
+    <Compile Include="Counter.vb" />
+    <Compile Include="CSVBuilder.vb" />
+    <Compile Include="dlgNameValueEdit.Designer.vb">
+      <DependentUpon>dlgNameValueEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dlgNameValueEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgTextEdit.Designer.vb">
+      <DependentUpon>dlgTextEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dlgTextEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extensions.vb" />
+    <Compile Include="frmBoilerplate.Designer.vb">
+      <DependentUpon>frmBoilerplate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBoilerplate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmControlArrays.Designer.vb">
+      <DependentUpon>frmControlArrays.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmControlArrays.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKeyPreview.Designer.vb">
+      <DependentUpon>frmKeyPreview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmKeyPreview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetWindowPos.Designer.vb">
+      <DependentUpon>frmSetWindowPos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetWindowPos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Library_Streams.vb" />
+    <Compile Include="Library_Text.vb" />
+    <Compile Include="Library_Arrays.vb" />
+    <Compile Include="Library_Files.vb" />
+    <Compile Include="Library_XML.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="MyConfiguration.vb" />
+    <Compile Include="MyDictionary.vb" />
+    <Compile Include="MyDictionaryEditor.Designer.vb">
+      <DependentUpon>MyDictionaryEditor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MyDictionaryEditor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyNameValuePair.vb" />
+    <Compile Include="NameValueBox.Designer.vb">
+      <DependentUpon>NameValueBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NameValueBox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShellControl.vb" />
+    <Compile Include="SystemSettingClassBase.vb" />
+    <Compile Include="SystemSettings.vb" />
+    <Compile Include="WindowsAPI.vb" />
+    <Compile Include="XMLConfiguration.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dlgNameValueEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dlgNameValueEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgTextEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dlgTextEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBoilerplate.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBoilerplate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmControlArrays.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmControlArrays.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKeyPreview.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmKeyPreview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetWindowPos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSetWindowPos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyDictionaryEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MyDictionaryEditor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NameValueBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NameValueBox.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

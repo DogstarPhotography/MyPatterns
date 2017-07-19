@@ -1,0 +1,5 @@
+modChartLib = 22, 22, 581, 470, C
+modStringLib = 22, 22, 581, 470, C
+TriData = 22, 22, 583, 470, C
+frmDisplaySettings = 66, 66, 625, 514, C, 132, 132, 691, 580, C
+modCSVLib = 0, 0, 0, 0, C

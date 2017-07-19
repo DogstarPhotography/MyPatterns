@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+
+    <!-- View will be here -->
+    <form data-bind="submit: addChild">
+        New Child:
+        <input data-bind="value: newChild, valueUpdate: 'afterkeydown'" />
+        <button type="submit" data-bind="enable: addChildEnabled">Add</button>
+        <p>Person's Children</p>
+        <select multiple="multiple" size="7" data-bind="options: children, selectedOptions: selectedChildren"></select>
+        <button data-bind="click: removeSelected, enable: removeSelectedEnabled">Remove</button>
+    </form>
+
+    <script type="text/javascript" src="../Scripts/knockout-3.3.0.js"></script>
+    <script type="text/javascript">
+
+        // Model
+        var person = {
+            children: ["Jonnie", "Jane", "Richard", "Mary"]
+        };
+
+        // ViewModel
+        var PersonViewModel = function() {
+            // 'Constructor' - take a reference copy to 'this'
+            var self = this;
+            self.children = ko.observableArray(person.children);
+
+            // Add
+            self.newChild = ko.observable("");
+            self.addChildEnabled = ko.computed(function () {
+                return self.newChild().length > 0;
+            });
+            self.addChild = function () {
+                if (self.addChildEnabled()) {
+                    self.children.push(self.newChild());
+                    self.newChild("");
+                }
+            };
+
+            // Remove
+            self.selectedChildren = ko.observable([]);
+            self.removeSelectedEnabled = ko.computed(function () {
+                return self.selectedChildren().length > 0;
+            });
+            self.removeSelected = function () {
+                self.children.removeAll(self.selectedChildren());
+                self.selectedChildren([]); // Clear the array
+            };
+
+        };
+
+        // Apply
+        ko.applyBindings(PersonViewModel)
+
+    </script>
+
+</body>
+</html>

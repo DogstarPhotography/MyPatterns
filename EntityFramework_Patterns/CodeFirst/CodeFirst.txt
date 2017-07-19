@@ -1,0 +1,7 @@
+﻿
+Based on the walkthrough here: http://blogs.msdn.com/b/adonet/archive/2010/07/14/ctp4piwalkthrough.aspx
+Updated for EF4.2: http://blogs.msdn.com/b/adonet/archive/2011/09/28/ef-4-2-code-first-walkthrough.aspx
+
+Note that CodeFirst cannot be included in the same project as DatabaseFirst or ModelFirst EF as the internal code that creates the code first model gets confused and reads the model first model instead. See http://social.msdn.microsoft.com/Forums/en-US/adonetefx/thread/b87815ff-6569-4559-8268-7ae6433b8aa8
+
+For C# projects see also Entity Framework Power Tools (http://blogs.msdn.com/b/adonet/archive/2011/05/18/ef-power-tools-ctp1-released.aspx) which includes a 'Reverse Engineer Code First' feature that allows a one time generation of Code First to an existing database.

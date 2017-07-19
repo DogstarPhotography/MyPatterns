@@ -1,0 +1,16 @@
+﻿/*
+	Lifted straight from here: http://www.devinrolsen.com/three-column-layout-ten-lines-of-css/
+*/
+
+body {text-align:center; background-color:#ccc;}
+#main{margin-left:auto; margin-right:auto; width:980px;}
+#wrapper{float:left;}
+#header{height:90px; border-bottom:#ccc solid; border-width:1px;}
+#footer{height:30px; border-top:#ccc solid; border-width:1px;}
+
+.column{width:165px; float:left;}
+.center{width:650px; float:left;}
+
+.caps{width:980px; float:left; background-color:#FFF;}
+.column div, .center div {padding:15px}
+

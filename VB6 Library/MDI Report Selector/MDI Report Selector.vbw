@@ -1,0 +1,17 @@
+modStringLib = 154, 154, 750, 602, C
+modExcelReport = 154, 154, 730, 602, C
+modTimeLib = 0, 0, 0, 0, C
+modUsefulLib = 110, 110, 706, 558, C
+modMain = 176, 176, 685, 624, C
+modTreeViewLib = 198, 198, 707, 646, C
+modGridLib = 0, 0, 0, 0, C
+frmMaster = 198, 198, 774, 646, C, 154, 154, 663, 602, C
+frmSplash = 176, 176, 684, 624, C, 132, 132, 641, 580, C
+mdiTreeChild = 176, 176, 752, 624, C, 88, 88, 597, 536, C
+mdiSelectionChild = 66, 66, 730, 369, C, 66, 66, 575, 514, C
+frmAbout = 176, 176, 772, 624, C, 44, 44, 553, 492, C
+frmOptions = 220, 220, 796, 668, C, 22, 22, 531, 470, C
+modRegistry = 132, 132, 728, 580, C
+modTriangulatorOLEAutomation = 154, 154, 750, 602, C
+frmFlood = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+modExcelOLEAutomation = 110, 110, 668, 558, C

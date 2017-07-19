@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+
+    <!-- View will be here -->
+    <form>
+        <p>
+            <input type="checkbox" data-bind="checked: isMarried" ? />
+            Is married
+        </p>
+        <p>
+            Wife's name:
+            <input type="text" data-bind="value: wife, enable: isMarried" />
+        </p>
+    </form>
+
+    <script type="text/javascript" src="../Scripts/knockout-3.3.0.js"></script>
+    <script type="text/javascript">
+
+        // Model
+        var person = {
+            isMarried: false,
+            wife: ""
+        };
+
+        // ViewModel
+        var PersonViewModel = function() {
+            // 'Constructor' - take a reference copy to 'this'
+            var self = this;
+            self.isMarried = ko.observable(person.isMarried);
+            self.wife = ko.observable(person.wife);
+        };
+
+        // Apply
+        ko.applyBindings(PersonViewModel)
+
+    </script>
+
+</body>
+</html>

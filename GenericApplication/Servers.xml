@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<!-- Servers.xml Version 1.01.00 (c) London Pensions Fund Authority 2010 -->
+<Servers>
+  <xs:schema id="Servers" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="Servers" msdata:IsDataSet="true" msdata:Locale="en-GB">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Server">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
+                <xs:element name="Environment" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <xs:element name="SQLInstance" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <xs:element name="Database" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <xs:element name="ReadOnlyAccess" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <xs:element name="ReadWriteAccess" type="xs:string" minOccurs="0" maxOccurs="1" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Environment">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
+                <xs:element name="Description" type="xs:string" minOccurs="1" maxOccurs="1" />
+                <xs:element name="Path" type="xs:string" minOccurs="1" maxOccurs="1" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <!-- Live -->
+  <Server>
+    <Name>InterfaceEaling</Name>
+    <Environment>Live</Environment>
+    <SQLInstance>Sirius-LON-CMS-02</SQLInstance>
+    <Database>InterfaceEaling</Database>
+    <ReadOnlyAccess>ICTDevReadOnly;6DC119CA8439C1F4D80313FB09CF153D</ReadOnlyAccess>
+    <ReadWriteAccess>NotAllowed;Unknown</ReadWriteAccess>
+  </Server>
+  <Server>
+    <Name>Opus</Name>
+    <Environment>Live</Environment>
+    <SQLInstance>Siriusprows-2</SQLInstance>
+    <Database>Opus</Database>
+    <ReadOnlyAccess>ICTDevReadOnly;6DC119CA8439C1F4D80313FB09CF153D</ReadOnlyAccess>
+    <ReadWriteAccess>NotAllowed;Unknown</ReadWriteAccess>
+  </Server>
+  <Server>
+    <Name>EHD</Name>
+    <Environment>Live</Environment>
+    <SQLInstance>Sirius-lon-ehd-01</SQLInstance>
+    <Database>EalingHistoricData</Database>
+    <ReadOnlyAccess>ICTDevReadOnly;6DC119CA8439C1F4D80313FB09CF153D</ReadOnlyAccess>
+    <ReadWriteAccess>NotAllowed;Unknown</ReadWriteAccess>
+  </Server>
+  <!-- Mirror -->
+  <Server>
+    <Name>EalingMirror</Name>
+    <Environment>Mirror</Environment>
+    <SQLInstance>SiriusINTRANET</SQLInstance>
+    <Database>EalingMirror</Database>
+    <ReadOnlyAccess>ICTDevReadOnly;865499EBBB0B0062</ReadOnlyAccess>
+    <ReadWriteAccess>Not Allowed;Unknown</ReadWriteAccess>
+  </Server>
+  <!-- Local PC -->
+  <Server>
+    <Name>EHD</Name>
+    <Environment>Local</Environment>
+    <SQLInstance>(local)</SQLInstance>
+    <Database>EHD</Database>
+    <ReadOnlyAccess>LocalRO;F8C60F5EF498329F9B1E816EE1CE1F21</ReadOnlyAccess>
+    <ReadWriteAccess>NotAllowed;Unknown</ReadWriteAccess>
+  </Server>
+  <!-- BI  -->
+  <Server>
+    <Name>PAS</Name>
+    <Environment>BI</Environment>
+    <SQLInstance>Sirius-lon-bi-02</SQLInstance>
+    <Database>PAS</Database>
+    <ReadOnlyAccess>ICTDevReadOnly;6DC119CA8439C1F4D80313FB09CF153D</ReadOnlyAccess>
+    <ReadWriteAccess>NotAllowed;Unknown</ReadWriteAccess>
+  </Server>
+  <Server>
+    <Name>AxisMirrorArchive</Name>
+    <Environment>BI</Environment>
+    <SQLInstance>Sirius-lon-bi-02</SQLInstance>
+    <Database>CPXMirrorArchive</Database>
+    <ReadOnlyAccess>ICTDevReadOnly;6DC119CA8439C1F4D80313FB09CF153D</ReadOnlyAccess>
+    <ReadWriteAccess>NotAllowed;Unknown</ReadWriteAccess>
+  </Server>
+  <!-- Dev -->
+  <Server>
+    <Name>Opus</Name>
+    <Environment>Development</Environment>
+    <SQLInstance>Sirius-LON-BI-01</SQLInstance>
+    <Database>Opus</Database>
+    <ReadOnlyAccess>ICTDevReadOnly;6DC119CA8439C1F4D80313FB09CF153D</ReadOnlyAccess>
+    <ReadWriteAccess>NotAllowed;Unknown</ReadWriteAccess>
+  </Server>
+  <Server>
+    <Name>InterfaceEaling</Name>
+    <Environment>Development</Environment>
+    <SQLInstance>Sirius-LON-BI-01</SQLInstance>
+    <Database>InterfaceEaling</Database>
+    <ReadOnlyAccess>ICTDevReadOnly;6DC119CA8439C1F4D80313FB09CF153D</ReadOnlyAccess>
+    <ReadWriteAccess>NotAllowed;Unknown</ReadWriteAccess>
+  </Server>
+  <Server>
+    <Name>InterfaceWestminster</Name>
+    <Environment>Development</Environment>
+    <SQLInstance>Sirius-LON-BI-01</SQLInstance>
+    <Database>InterfaceWestminster</Database>
+    <ReadOnlyAccess>ICTDevReadOnly;6DC119CA8439C1F4D80313FB09CF153D</ReadOnlyAccess>
+    <ReadWriteAccess>NotAllowed;Unknown</ReadWriteAccess>
+  </Server>
+  <!-- Environments -->
+  <Environment>
+    <Name>Live</Name>
+    <Description>Live databases</Description>
+    <Path>d:\Temp</Path>
+  </Environment>
+  <Environment>
+    <Name>Mirror</Name>
+    <Description>Mirrors of Live databases</Description>
+    <Path>d:\Temp</Path>
+  </Environment>
+  <Environment>
+    <Name>Development</Name>
+    <Description>Development databases</Description>
+    <Path>d:\Temp</Path>
+  </Environment>
+  <Environment>
+    <Name>Local</Name>
+    <Description>Local PC databases</Description>
+    <Path>c:\Temp</Path>
+  </Environment>
+  <Environment>
+    <Name>BI</Name>
+    <Description>Business Intelligence databases</Description>
+    <Path>c:\Temp</Path>
+  </Environment>
+</Servers>

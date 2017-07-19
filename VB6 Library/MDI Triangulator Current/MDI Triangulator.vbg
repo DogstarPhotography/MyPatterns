@@ -1,0 +1,5 @@
+VBGROUP 5.0
+StartupProject=Triangulator.vbp
+Project=..\Code Components\TriDataArray\TriDataArray.vbp
+Project=..\Code Components\Section File\Section File.vbp
+Project=..\Code Components\BoilerPlateProject\BoilerPlate.vbp

@@ -1,0 +1,13 @@
+﻿Imports Sirius.IO
+Imports System.Data.Linq
+
+Public Class $Reader
+    Inherits DataContext
+
+    Public Records As Table(Of $)
+
+    Public Sub New()
+        MyBase.New(ConnectionManager.GetInstance.GetSQLAccess("#").ConnectionString)
+    End Sub
+End Class
+

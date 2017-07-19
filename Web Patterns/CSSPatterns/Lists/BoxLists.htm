@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<style type="text/css">
+		/* Horizontal Box List */
+		#horizontalboxlist {
+			width:100%;
+			height:30px;
+			background-color:#999;
+		}
+		#horizontalboxlist ul {
+			margin:0px; 
+			padding:0px;
+			}
+		#horizontalboxlist ul li {
+			display:inline;
+			height:30px;
+			float:left;
+			list-style:none;
+			margin-left:15px;
+			position:relative;
+		}
+		#horizontalboxlist li a {
+			color:#fff; 
+			text-decoration:none;
+			}
+		#horizontalboxlist li a:hover {
+			text-decoration:underline;
+			}		
+		
+		/* Vertical Box List */
+		#verticalboxlist {
+			font-size:0.75em; 
+			width:150px;
+			}
+		#verticalboxlist ul {
+			margin:0px; 
+			padding:0px;
+			}
+		#verticalboxlist li {
+			list-style: none;
+			}
+		ul.vbl-top-level 
+		{
+			background:#666;
+			}
+		ul.vbl-top-level li {
+			border-bottom: #fff solid;
+			border-top: #fff solid;
+			border-width: 1px;
+		}
+		#verticalboxlist a {
+			color: #fff;
+			cursor: pointer;
+			display:block;
+			height:25px;
+			line-height: 25px;
+			text-indent: 10px;                   
+			text-decoration:none;
+			width:100%;
+		}
+		#verticalboxlist a:hover {
+			text-decoration:underline;
+		}		
+	</style>
+</head>
+<body>
+	<div id="horizontalboxlist">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">FAQ</a></li>
+			<li><a href="#">News</a></li>
+		</ul>
+	</div>
+	<div></div>
+	<div id="verticalboxlist">
+		<ul class="vbl-top-level">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">FAQ</a></li>
+			<li><a href="#">News</a></li>
+		</ul>
+	</div>
+</body>
+</html>
